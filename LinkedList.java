@@ -1,32 +1,71 @@
 public class LinkedList
 { 
-  protected Node head;
   protected class Node
   { 
     protected int data;
     protected Node next;
     
-    private boolean hasNext()
+    protected Node(int data, Node next)
+    {
+      this.data = data;
+      this.next = next;
+    }
+
+    protected boolean hasNext()
     { 
       if(next == null)
         return false;
       else
         return true;
     }
+
+    public int compare(int data)
+    {
+      return this.data - data;
+    }
+
+    public void next()
+    {
+      data = next.data;
+      next = next.next;   
+    }
   }
-  
-  protected boolean search(int needle, Node current)
+  protected Node head;
+
+  protected LinkedList(int[] args)
+  {
+    head = new Node(args[0], null);
+    for(int i=1;i<args.length;i++)
+    {
+      Node temp = head;
+      head = new Node(args[i], temp);
+    }
+  }
+
+  protected boolean recursiveSearch(int needle, Node current)
   { 
+    if(current == null)
+      current = head;
     if(current.data == needle)
       return true;
     else
-    { 
-      if(current.hasNext())
-        current = current.next;
+      if(current.hasNext()) 
+        return this.recursiveSearch(needle, current.next);
       else
         return false;
-      return search(needle, current);
+  }
+
+  public boolean OOSearch(int needle)
+  {
+    Node current = head;
+
+    while(current.hasNext())
+    {
+      if(current.compare(needle) == 0)
+        return true;
+      current.next();
     }
+      return false;
   }
 }
 
