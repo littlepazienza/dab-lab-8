@@ -2,24 +2,17 @@ public class Test
 {
 	public static void main(String[] args)
 	{
-		LinkedList theList = new LinkedList();
+        	int[] array = {1, 2, 3, 4, 5, 6, 7}; 
+		LinkedList theList = new LinkedList(array);
 
-		theList.add(1);
-		theList.add(4);
-		theList.add(-4);
-		theList.add(44);
-		theList.add(12);
-		theList.add(3);
-		theList.add(7);
+		System.out.println( (theList.iterativeSearch(3)) ? "(ITERATIVE) I found " : "I could not find ");
+		System.out.print(3 + "");
 
-		System.out.println( (iterativeSearch(args[0])) ? "(ITERATIVE) I found " : "I could not find ");
-		System.out.print(args[0] + "");
+		System.out.println( (theList.recursiveSearch(3)) ? "(RECURSIVE) I found " : "I could not find ");
+		System.out.print(3 + "");
 
-		System.out.println( (recursiveSearch(args[0])) ? "(RECURSIVE) I found " : "I could not find ");
-		System.out.print(args[0] + "");
-
-		System.out.println( (ooSearch(args[0])) ? "(OO) I found " : "I could not find ");
-		System.out.print(args[0] + "");
+		System.out.println( (theList.ooSearch(3)) ? "(OO) I found " : "I could not find ");
+		System.out.print(3 + "");
 	}
 
 }

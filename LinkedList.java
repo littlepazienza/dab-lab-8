@@ -29,6 +29,19 @@ public class LinkedList
       data = next.data;
       next = next.next;   
     }
+
+    public boolean isEmpty()
+    {
+      if (head == null)
+      {
+        return true;
+      }
+      else if (next != null)
+      {
+        return false;
+      }
+      return false;
+    }
   }
   protected Node head;
 
@@ -55,7 +68,7 @@ public class LinkedList
         return false;
   }
 
-  public boolean OOSearch(int needle)
+  public boolean ooSearch(int needle)
   {
     Node current = head;
 
@@ -66,6 +79,31 @@ public class LinkedList
       current.next();
     }
       return false;
+  }
+
+  public boolean iterativeSearch(int needle)
+  {
+    Node current = head;
+
+    if (current == null)
+    {
+      return false;
+    }
+    else
+    {
+      while(current != null)
+      {
+        if (current.data == needle)
+        {
+          return true;
+        }
+        else
+        {
+          current = current.next;
+        }
+      }
+    }
+    return false;
   }
 }
 
