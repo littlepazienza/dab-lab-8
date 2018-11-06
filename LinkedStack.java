@@ -1,17 +1,24 @@
-public class LinkedStack<E> implements StackInterface<E>
+import java.util.EmptyStackException;
+
+public class LinkedStack<E>
 {
 	private Node top;
 
-	public E pop() throws StackException
+	public E pop()throws Exception
 	{
 		if(top == null)
-			throw new StackException("Cannot pop an empty stack");
+			throw new Exception("Cannot pop an empty stack");
 
 		E temp = top.data;
 
 		top = top.next;
 
 		return temp;
+	}
+
+	public LinkedStack()
+	{
+		top= null;
 	}
 
 	private class Node
@@ -26,6 +33,24 @@ public class LinkedStack<E> implements StackInterface<E>
 		}
 
 	}
+
+	/**
+	  * Returns true if this stack is empty.
+	  *
+	  * @return true if this stack is empty; false otherwise
+	  */
+	public boolean isEmpty() {
+		return top == null;
+	}
+
+  public void push(E item) {
+    Node oldfirst = top;
+    top = new Node( );
+    top.data  = item;
+    top.next = oldfirst;
+
+  }
+
 
 }
 
