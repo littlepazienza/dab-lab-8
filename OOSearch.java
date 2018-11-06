@@ -1,4 +1,5 @@
-public class LinkedList
+
+public class OOSearch
 {
 	protected Node head;
 
@@ -19,7 +20,7 @@ public class LinkedList
 				return this.data - data;
 		}
 
-		public void next();
+		public void next()
 		{
 			data = next.data;
 			next = next.next;
