@@ -1,6 +1,6 @@
 public class IterativeSearch
 {
-  protected Node head = new Node();
+  protected Node head;
 
   protected class Node
   {
@@ -11,7 +11,7 @@ public class IterativeSearch
     {
       if (next == null)
          return false;
-      return false;
+      return true;
     }
     public boolean isEmpty()
     {
